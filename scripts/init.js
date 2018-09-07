@@ -42,6 +42,7 @@ module.exports = function(
   appPackage.scripts = {
     start: 'react-scripts-ts start',
     build: 'react-scripts-ts build',
+    build_lib: 'react-scripts-ts build_lib',
     test: 'react-scripts-ts test --env=jsdom',
     eject: 'react-scripts-ts eject',
   };

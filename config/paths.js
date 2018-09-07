@@ -46,23 +46,34 @@ function getServedPath(appPackageJson) {
   return ensureSlash(servedUrl, true);
 }
 
+// We extract the library name from the package.json 'name' field
+// Setting the enviroment variable LIBRARY_NAME can override this setting
+const envLibrayName = process.env.LIBRARY_NAME;
+const getLibraryName = appPackageJson =>
+  envLibrayName || require(appPackageJson).name;
+
 // config after eject: we're in ./config/
 module.exports = {
   dotenv: resolveApp('.env'),
   appBuild: resolveApp('build'),
+  libBuild: resolveApp('lib'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp('src/index.tsx'),
+  libIndexJs: resolveApp('src/lib/index.tsx'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
+  libSrc: resolveApp('src/lib'),
   yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveApp('src/setupTests.ts'),
   appNodeModules: resolveApp('node_modules'),
   appTsConfig: resolveApp('tsconfig.json'),
   appTsProdConfig: resolveApp('tsconfig.prod.json'),
+  appTsLibConfig: resolveApp('tsconfig.lib.json'),
   appTsLint: resolveApp('tslint.json'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+  libraryName: getLibraryName(resolveApp('package.json')),
 };
 
 // @remove-on-eject-begin
@@ -73,20 +84,25 @@ module.exports = {
   dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
   appBuild: resolveApp('build'),
+  libBuild: resolveApp('lib'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp('src/index.tsx'),
+  libIndexJs: resolveApp('src/lib/index.tsx'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
+  libSrc: resolveApp('src/lib'),
   yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveApp('src/setupTests.ts'),
   appNodeModules: resolveApp('node_modules'),
   appTsConfig: resolveApp('tsconfig.json'),
   appTsProdConfig: resolveApp('tsconfig.prod.json'),
+  appTsLibConfig: resolveApp('tsconfig.lib.json'),
   appTsTestConfig: resolveApp('tsconfig.test.json'),
   appTsLint: resolveApp('tslint.json'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+  libraryName: getLibraryName(resolveApp('package.json')),
   // These properties only exist before ejecting:
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
@@ -106,20 +122,25 @@ if (
     dotenv: resolveOwn('template/.env'),
     appPath: resolveApp('.'),
     appBuild: resolveOwn('../../build'),
+    libBuild: resolveOwn('../../lib'),
     appPublic: resolveOwn('template/public'),
     appHtml: resolveOwn('template/public/index.html'),
     appIndexJs: resolveOwn('template/src/index.tsx'),
+    libIndexJs: resolveOwn('template/src/lib/index.tsx'),
     appPackageJson: resolveOwn('package.json'),
     appSrc: resolveOwn('template/src'),
+    libSrc: resolveOwn('template/src/lib'),
     yarnLockFile: resolveOwn('template/yarn.lock'),
     testsSetup: resolveOwn('template/src/setupTests.ts'),
     appNodeModules: resolveOwn('node_modules'),
     appTsConfig: resolveOwn('template/tsconfig.json'),
     appTsProdConfig: resolveOwn('template/tsconfig.prod.json'),
+    appTsLibConfig: resolveOwn('template/tsconfig.lib.json'),
     appTsLint: resolveOwn('template/tslint.json'),
     appTsTestConfig: resolveOwn('template/tsconfig.test.json'),
     publicUrl: getPublicUrl(resolveOwn('package.json')),
     servedPath: getServedPath(resolveOwn('package.json')),
+    libraryName: getLibraryName(resolveOwn('package.json')),
     // These properties only exist before ejecting:
     ownPath: resolveOwn('.'),
     ownNodeModules: resolveOwn('node_modules'),

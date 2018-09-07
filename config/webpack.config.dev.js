@@ -195,8 +195,11 @@ module.exports = {
               {
                 loader: require.resolve('css-loader'),
                 options: {
+                  modules: true,
                   importLoaders: 1,
-                },
+                  camelCase: true,
+                  localIdentName: '[name]__[local]___[hash:base64:5]'
+                }
               },
               {
                 loader: require.resolve('postcss-loader'),
