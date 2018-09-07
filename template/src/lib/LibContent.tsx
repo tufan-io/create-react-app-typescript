@@ -1,9 +1,9 @@
 import * as React from 'react';
-import './LibContent.css';
+import * as styles from './LibContent.css';
 
 const LibContent = () => (
-  <div className="lib-content">
-    <p className="lib-content-para">
+  <div className={styles.libContent}>
+    <p className={styles.libContentPara}>
       Hello from Library!
     </p>
     <p>
