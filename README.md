@@ -6,6 +6,31 @@ This package is a fork from the create-react-app typescript repo.
 One of the references used to setup the library configuration is:
 https://marcobotto.com/blog/compiling-and-bundling-typescript-libraries-with-webpack/
 
+## Quick Overview
+```bash
+npx create-react-app my-app --scripts-version=tufanio-react-scripts-ts-with-lib
+cd my-app
+npm start
+```
+Open http://localhost:3000/ to see your app
+When you are ready to deploy to production, create a minified bundle with
+`npm run build_lib`
+
+Note: This package is not published to npm. In order to use this, you can do the
+following:
+
+```bash
+git clone https://github.com/tufan-io/create-react-app-typescript.git
+cd ..
+create-react-app my-app --scripts-version=file:./create-react-app-typescript
+cd my-app
+npm start
+```
+<i>make sure you have create-react-app installed</i>
+
+---
+Changes from the original:
+
 It modifies the directory structure of the created app to primarily support the
 creation of react component library using typescript. In addition to being able
 to publish the library, it supports the notion of creating a sample app that uses

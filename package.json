@@ -2,7 +2,7 @@
   "name": "tufanio-react-scripts-ts-with-lib",
   "version": "0.1.0",
   "description": "Configuration and scripts for Create React App for creating typescript App and Lib.",
-  "repository": "tufanio/create-react-app-ts-with-lib",
+  "repository": "tufanio/create-react-app-typescript",
   "license": "BSD-3-Clause",
   "engines": {
     "node": ">=6"
