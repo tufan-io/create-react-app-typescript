@@ -21,7 +21,6 @@ following:
 
 ```bash
 git clone https://github.com/tufan-io/create-react-app-typescript.git
-cd ..
 create-react-app my-app --scripts-version=file:./create-react-app-typescript
 cd my-app
 npm start
